@@ -56,7 +56,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class MainActivity extends AppCompatActivity {
-    Button yoklama,liste;
+    Button yoklama,liste,years;
 
     @SuppressLint("CommitPrefEdits")
     @Override
@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         yoklama=findViewById(R.id.button3);
         liste=findViewById(R.id.button4);
+        years=findViewById(R.id.button5);
         yoklama.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,6 +77,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getApplicationContext(),NewPerson.class);
+                startActivity(intent);
+            }
+        });
+        years.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),Years.class);
                 startActivity(intent);
             }
         });

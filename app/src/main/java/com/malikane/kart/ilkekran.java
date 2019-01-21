@@ -14,7 +14,6 @@ import android.util.SparseArray;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -28,7 +27,7 @@ import java.util.Calendar;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class ilkekran extends AppCompatActivity {
+public class ilkekran extends AppCompatActivity  {
     SurfaceView cameraPreview;
     static TextView txtResult;
     static String QrInput;
@@ -73,7 +72,6 @@ public class ilkekran extends AppCompatActivity {
         super.onPause();
         editor.commit();
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,10 +81,8 @@ public class ilkekran extends AppCompatActivity {
 
         TodayPerson=data.getStringSet("TodayPerson",TodayPerson);
         LastCheckDay=data.getStringSet("LastCheckDay",LastCheckDay);
-        editor.putString("key","00/00/00");
         cameraPreview = (SurfaceView) findViewById(R.id.cameraPreview);
         txtResult = (TextView) findViewById(R.id.txtResult);
-
         back=findViewById(R.id.backButton);
         fullScreen();
         back.setOnClickListener(new View.OnClickListener() {
@@ -103,6 +99,8 @@ public class ilkekran extends AppCompatActivity {
                 .Builder(this, barcodeDetector)
                 .setRequestedPreviewSize(640, 480)
                 .build();
+
+
         //Add Event
         cameraPreview.getHolder().addCallback(new SurfaceHolder.Callback() {
             @Override
@@ -158,6 +156,7 @@ public class ilkekran extends AppCompatActivity {
             }
         });
     }
+
     private void fullScreen(){
         // Enables regular immersive mode.
         // For "lean back" mode, remove SYSTEM_UI_FLAG_IMMERSIVE.

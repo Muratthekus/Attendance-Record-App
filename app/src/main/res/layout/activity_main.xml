@@ -15,7 +15,7 @@
         android:layout_marginBottom="133dp"
         android:gravity="center"
         android:text="BİR DEMO UYGULMASI"
-        android:textColor="@android:color/holo_blue_dark"
+        android:textColor="#0f2e39"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -25,10 +25,10 @@
         android:layout_height="67dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="49dp"
         android:gravity="center"
         android:text="HOŞGELDİNİZ"
-        android:textColor="@android:color/holo_blue_dark"
+        android:textColor="#07232d"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -38,7 +38,7 @@
         android:layout_height="80dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="179dp"
+        android:layout_marginTop="134dp"
         android:text="Check"
         android:textSize="24sp"
         android:textStyle="bold" />
@@ -47,10 +47,21 @@
         android:id="@+id/button4"
         android:layout_width="157dp"
         android:layout_height="82dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="242dp"
+        android:text="Liste"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="157dp"
+        android:layout_height="82dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="252dp"
-        android:text="Liste"
+        android:layout_marginBottom="219dp"
+        android:text="dönemler"
         android:textSize="24sp"
         android:textStyle="bold" />
 </RelativeLayout>

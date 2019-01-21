@@ -98,17 +98,7 @@ public class NewPerson extends AppCompatActivity {
         editor.commit();
     }
     private void CheckProcess(){
-        for(Object todaypeople:TodayPerson.toArray()){
-            for(Object members:kisiler.toArray()){
-                if(todaypeople.toString().equals(members.toString() )){
 
-                }
-            }
-        }
-        //Kümeyi bir sonraki yoklama için sıfırlıyor
-        TodayPerson.clear();
-        editor.putStringSet("TodayPerson",TodayPerson);
-        editor.commit();
     }
     private void fullScreen(){
         // Enables regular immersive mode.
