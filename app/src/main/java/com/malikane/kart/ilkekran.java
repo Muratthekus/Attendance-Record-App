@@ -37,7 +37,7 @@ public class ilkekran extends AppCompatActivity  {
     static String DATE= Calendar.getInstance().get(Calendar.DAY_OF_MONTH)+"/"+(Calendar.getInstance().get(Calendar.MONTH)+1)+"/"+Calendar.getInstance().get(Calendar.YEAR);
     StringBuilder plusStr=new StringBuilder();
     Set<String> TodayPerson=new TreeSet<>();
-    Set<String> LastCheckDay= new TreeSet<>();
+    String LastCheckDay;
     final int RequestCameraPermissionID = 1001;
     //Veri Saklama
     static SharedPreferences data;
@@ -80,7 +80,7 @@ public class ilkekran extends AppCompatActivity  {
         editor = data.edit();
 
         TodayPerson=data.getStringSet("TodayPerson",TodayPerson);
-        LastCheckDay=data.getStringSet("LastCheckDay",LastCheckDay);
+        LastCheckDay=data.getString("LastCheckDay",LastCheckDay);
         cameraPreview = (SurfaceView) findViewById(R.id.cameraPreview);
         txtResult = (TextView) findViewById(R.id.txtResult);
         back=findViewById(R.id.backButton);
@@ -147,7 +147,7 @@ public class ilkekran extends AppCompatActivity  {
                             Vibrator vibrator = (Vibrator)getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
                             vibrator.vibrate(50);
                             TodayPerson.add(qrcodes.valueAt(0).displayValue);
-                            editor.putStringSet("LastCheckDay",LastCheckDay);
+                            editor.putString("LastCheckDay",LastCheckDay);
                             editor.putStringSet("TodayPerson",TodayPerson);
                             txtResult.setText(qrcodes.valueAt(0).displayValue);
                         }

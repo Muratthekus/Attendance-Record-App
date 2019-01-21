@@ -12,7 +12,7 @@
         android:layout_height="69dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="133dp"
+        android:layout_marginBottom="95dp"
         android:gravity="center"
         android:text="BİR DEMO UYGULMASI"
         android:textColor="#0f2e39"
@@ -60,7 +60,7 @@
         android:layout_height="82dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="219dp"
+        android:layout_marginBottom="200dp"
         android:text="dönemler"
         android:textSize="24sp"
         android:textStyle="bold" />

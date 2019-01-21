@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         yoklama=findViewById(R.id.button3);
         liste=findViewById(R.id.button4);
         years=findViewById(R.id.button5);
+        fullScreen();
         yoklama.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

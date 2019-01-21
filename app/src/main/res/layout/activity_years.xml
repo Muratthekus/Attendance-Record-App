@@ -20,7 +20,7 @@
         android:layout_height="290dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="102dp">
+        android:layout_marginTop="81dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -57,7 +57,7 @@
         android:layout_height="59dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="107dp"
+        android:layout_marginBottom="127dp"
         android:layout_marginStart="53dp"
         android:text="Create" />
 
@@ -67,7 +67,7 @@
         android:layout_height="39dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="187dp"
+        android:layout_marginBottom="211dp"
         android:gravity="center_horizontal|center"
         android:hint="Dosya ismi"
         android:textSize="14sp"

@@ -12,7 +12,7 @@
         android:layout_height="31dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="37dp"
         android:gravity="center_horizontal|center"
         android:text="KİŞİLER"
         android:textSize="24sp"
@@ -23,8 +23,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/IncomeKıisi"
-        android:layout_marginBottom="80dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="81dp"
+        android:layout_marginStart="47dp"
         android:text="Yeni Kişi"
         android:textSize="14sp"
         android:textStyle="bold" />
@@ -33,8 +34,9 @@
         android:id="@+id/button2"
         android:layout_width="101dp"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/IncomeKıisi"
+        android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/button"
+        android:layout_marginEnd="31dp"
         android:text="Ara"
         android:textSize="14sp"
         android:textStyle="bold" />
@@ -52,10 +54,10 @@
 
     <HorizontalScrollView
         android:layout_width="match_parent"
-        android:layout_height="258dp"
+        android:layout_height="220dp"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="92dp">
+        android:layout_marginBottom="206dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -119,5 +121,39 @@
             </TableLayout>
         </LinearLayout>
     </HorizontalScrollView>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="88dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="127dp">
+
+        <LinearLayout
+            android:id="@+id/LinerLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" />
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="98dp"
+        android:text="GEÇERLİ DÖNEMİ SEÇİN"
+        android:textSize="18sp"
+        android:textStyle="bold|italic" />
+
+    <Button
+        android:id="@+id/update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:text="güncelle"
+        android:textStyle="bold" />
 
 </RelativeLayout>
