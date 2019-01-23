@@ -48,7 +48,7 @@ public class NewPerson extends AppCompatActivity {
     TableRow rowOne,rowTwo;
     static String DATE= Calendar.getInstance().get(Calendar.DAY_OF_MONTH)+"/"+(Calendar.getInstance().get(Calendar.MONTH)+1)+"/"+Calendar.getInstance().get(Calendar.YEAR);
     LinearLayout linearLayout;
-    String tarih;
+    String tarih="";
     Set<String> TodayPerson = new TreeSet<>();
     String PATH;
 
@@ -84,7 +84,7 @@ public class NewPerson extends AppCompatActivity {
         LinearLayoutText=findViewById(R.id.textView2);
 
         TodayPerson=data.getStringSet("TodayPerson",TodayPerson);
-        tarih=data.getString("LastCheckDaY",tarih);
+        tarih=data.getString("date",tarih);
         fullScreen();
         PATH=getApplicationContext().getExternalFilesDir(null).getAbsolutePath();
         RecordDataShow();
@@ -145,11 +145,11 @@ public class NewPerson extends AppCompatActivity {
 
         //Check Date
         int recordIndex=dateRow.getLastCellNum()-1;
-        if(!dateRow.getCell(dateRow.getLastCellNum()-1).toString().equals(DATE)){
+        if(!dateRow.getCell(dateRow.getLastCellNum()-1).toString().equals(tarih)){
             recordIndex=dateRow.getLastCellNum();
             mySheet.setColumnWidth(recordIndex,(15 * 300));
             dateCell=dateRow.createCell(recordIndex);
-            dateCell.setCellValue(DATE);
+            dateCell.setCellValue(tarih);
         }
 
         //check person is exist

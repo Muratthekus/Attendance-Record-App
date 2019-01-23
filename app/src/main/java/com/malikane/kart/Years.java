@@ -123,7 +123,7 @@ public class Years extends AppCompatActivity {
         }
     }
 
-    private void setTableRowContent(TableRow row1, TableRow row2,String fileName){
+    private void setTableRowContent(TableRow row1, TableRow row2, final String fileName){
         ImageView image; //this will use for show file logo
         TextView text; //this will use for show file name
         image=new ImageView(this);
