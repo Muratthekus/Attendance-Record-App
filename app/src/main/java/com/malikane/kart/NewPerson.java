@@ -42,13 +42,12 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class NewPerson extends AppCompatActivity {
-    TextView isim,LinearLayoutText;
+    TextView name,LinearLayoutText;
     EditText input;
-    Button ekle,ara,update;
-    TableRow rowOne,rowTwo;
-    static String DATE= Calendar.getInstance().get(Calendar.DAY_OF_MONTH)+"/"+(Calendar.getInstance().get(Calendar.MONTH)+1)+"/"+Calendar.getInstance().get(Calendar.YEAR);
-    LinearLayout linearLayout;
-    String tarih="";
+    Button add,search,update;
+    TableRow rowOne,rowTwo;//Dynamic row to show checked data
+    LinearLayout linearLayout;//Dynamic linear layout to choose record file
+    String checkday="";
     Set<String> TodayPerson = new TreeSet<>();
     String PATH;
 
@@ -74,9 +73,9 @@ public class NewPerson extends AppCompatActivity {
         editor = data.edit();
 
         input=findViewById(R.id.IncomeKıisi);
-        ekle=findViewById(R.id.button);
-        isim=findViewById(R.id.textView34);
-        ara=findViewById(R.id.button2);
+        add=findViewById(R.id.button);
+        name=findViewById(R.id.textView34);
+        search=findViewById(R.id.button2);
         rowOne=findViewById(R.id.rowOne);
         rowTwo=findViewById(R.id.rowTwo);
         linearLayout=findViewById(R.id.LinerLayout);
@@ -84,20 +83,21 @@ public class NewPerson extends AppCompatActivity {
         LinearLayoutText=findViewById(R.id.textView2);
 
         TodayPerson=data.getStringSet("TodayPerson",TodayPerson);
-        tarih=data.getString("date",tarih);
+        checkday=data.getString("date",checkday);
         fullScreen();
+        //File save location
         PATH=getApplicationContext().getExternalFilesDir(null).getAbsolutePath();
         RecordDataShow();
         fullScreen();
 
-        ekle.setOnClickListener(new View.OnClickListener() {
+        add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(!input.getText().toString().equals("") && !validSheet.equals("") && !validSheet.equals("")) {
                     addNewPersonAlertMessage(input.getText().toString());
                 }
                 else{
-                    Toast.makeText(getApplicationContext(), "Geçersiz Girdi", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "INVALID INPUT", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -105,7 +105,7 @@ public class NewPerson extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(TodayPerson.isEmpty()){
-                    Toast.makeText(getApplicationContext(),"YOKLAMA KAYDI YOK",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"NO CHECK DATA",Toast.LENGTH_SHORT).show();
                 }
                 else{
                     if(!validSheet.equals("") && !validSheet.equals("")) {
@@ -115,11 +115,11 @@ public class NewPerson extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "IO ERROR", Toast.LENGTH_SHORT).show();
                         }
                     }
-                    else Toast.makeText(getApplicationContext(), "KAYIT DOSYASI SEÇİNİZ", Toast.LENGTH_SHORT).show();
+                    else Toast.makeText(getApplicationContext(), "CHOOSE A RECORD DATA  ", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-        ara.setOnClickListener(new View.OnClickListener() {
+        search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(!input.getText().toString().equals("") && !validSheet.equals("") && !validSheet.equals("")) {
@@ -145,11 +145,11 @@ public class NewPerson extends AppCompatActivity {
 
         //Check Date
         int recordIndex=dateRow.getLastCellNum()-1;
-        if(!dateRow.getCell(dateRow.getLastCellNum()-1).toString().equals(tarih)){
+        if(!dateRow.getCell(dateRow.getLastCellNum()-1).toString().equals(checkday)){
             recordIndex=dateRow.getLastCellNum();
             mySheet.setColumnWidth(recordIndex,(15 * 300));
             dateCell=dateRow.createCell(recordIndex);
-            dateCell.setCellValue(tarih);
+            dateCell.setCellValue(checkday);
         }
 
         //check person is exist
@@ -210,7 +210,7 @@ public class NewPerson extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         validRecordFile=button.getText().toString();
-                        Toast.makeText(getApplicationContext(),"Gecerli Kayıt Dosyası: "+validRecordFile,Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"CHOOSE A RECORD: "+validRecordFile,Toast.LENGTH_SHORT).show();
                         try {
                             RecordDataSheetShow();
                         } catch (IOException e) {
@@ -223,9 +223,10 @@ public class NewPerson extends AppCompatActivity {
         }
     }
 
+    //For choose a sheet from the record which is a valid
     private void RecordDataSheetShow() throws IOException{
         linearLayout.removeAllViews();
-        LinearLayoutText.setText("GEÇERLİ SHEET'İ SEÇİN");
+        LinearLayoutText.setText("CHOOSE RECORD SHEET");
         File file=new File(PATH,validRecordFile);
         FileInputStream myInput = new FileInputStream(file);
 
@@ -242,7 +243,7 @@ public class NewPerson extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     validSheet=button.getText().toString();
-                    Toast.makeText(getApplicationContext(),"SHEET SEÇİLDİ",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"SHEET HAS BEEN CHOSEN",Toast.LENGTH_SHORT).show();
                 }
             });
             linearLayout.addView(button);
@@ -268,7 +269,7 @@ public class NewPerson extends AppCompatActivity {
             c=row.getCell(0);
             if(searchPerson.equals(c.toString())){
                 Row calendarRow=mySheet.getRow(0);
-                isim.setText(searchPerson);
+                name.setText(searchPerson);
                 if(calendarRow.getLastCellNum()!=0){
                     for(int j=1; j<=calendarRow.getLastCellNum()-1; j++){
                         TextView date=new TextView(this);
@@ -282,7 +283,7 @@ public class NewPerson extends AppCompatActivity {
                 isExist=true;
             }
         }
-        if(!isExist) Toast.makeText(getApplicationContext(),"ARANAN KİSİ YOK",Toast.LENGTH_LONG).show();
+        if(!isExist) Toast.makeText(getApplicationContext(),"THIS PERSON IS NOT EXIST",Toast.LENGTH_LONG).show();
 
     }
 
@@ -297,9 +298,9 @@ public class NewPerson extends AppCompatActivity {
     //---------------------------------------------------------------------
     private void addNewPersonAlertMessage(final String newPerson){
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("DEMO");
-        builder.setMessage("KİŞİ EKLENSİN Mİ?");
-        builder.setPositiveButton("EVET", new DialogInterface.OnClickListener() {
+        builder.setTitle("WARNING");
+        builder.setMessage("PERSON WILL BE ADDED");
+        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 try {
                     addPersonToExcel(newPerson);
@@ -309,7 +310,7 @@ public class NewPerson extends AppCompatActivity {
             }
         });
         //If User Choose Negative Button Then Nothing Will Happen
-        builder.setNegativeButton("HAYIR", new DialogInterface.OnClickListener(){
+        builder.setNegativeButton("NO", new DialogInterface.OnClickListener(){
             public void onClick(DialogInterface dialog, int id) {
                 dialog.cancel();
             }
@@ -335,13 +336,13 @@ public class NewPerson extends AppCompatActivity {
             c=row.getCell(0);
             if(newPerson.equals(c.toString())) isExist=true;
         }
-
+        //person is not exist on data
         if(!isExist){
             row=mySheet.createRow(mySheet.getLastRowNum()+1);
             c=row.createCell(0);
             c.setCellValue(newPerson);
         }
-        else Toast.makeText(getApplicationContext(),"KİŞİ ZATEN VAR",Toast.LENGTH_LONG).show();
+        else Toast.makeText(getApplicationContext(),"THIS PERSON ALREADY EXIST",Toast.LENGTH_LONG).show();
 
         File SaveFile=new File(getApplicationContext().getExternalFilesDir(null),validRecordFile);
         FileOutputStream os=null;

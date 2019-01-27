@@ -14,10 +14,10 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="95dp"
         android:gravity="center"
-        android:text="BİR DEMO UYGULMASI"
+        android:text="@Muratthekus"
         android:textColor="#0f2e39"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textStyle="italic" />
 
     <TextView
         android:id="@+id/textView4"
@@ -27,26 +27,26 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="37dp"
         android:gravity="center"
-        android:text="HOŞGELDİNİZ"
+        android:text="WELCOME"
         android:textColor="#07232d"
         android:textSize="24sp"
         android:textStyle="bold" />
 
     <Button
         android:id="@+id/button3"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="134dp"
-        android:text="Check"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
         android:background="@drawable/buttonshape"
         android:shadowColor="#A80C0C"
         android:shadowDx="0"
         android:shadowDy="0"
-        android:shadowRadius="0"/>
+        android:shadowRadius="0"
+        android:text="SCANNER"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/button4"
@@ -60,7 +60,7 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="0"
-        android:text="Liste"
+        android:text="RECORD"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -76,7 +76,8 @@
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="0"
-        android:text="dönemler"
+        android:text="DATA"
         android:textSize="24sp"
         android:textStyle="bold" />
+
 </RelativeLayout>

@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ilkekran">
+    tools:context=".Check">
 
     <SurfaceView
         android:id="@+id/cameraPreview"
         android:layout_width="match_parent"
-        android:layout_height="497dp"
+        android:layout_height="389dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="18dp"
+        android:layout_marginBottom="127dp"
         android:focusable="?android:attr/windowOverscan"
         android:focusableInTouchMode="true"
         android:padding="0.2dp" />
@@ -44,7 +44,7 @@
         android:layout_alignBottom="@+id/backButton"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:text="DEMO"
+        android:text="scanner"
         android:textSize="24sp"
         android:textStyle="bold" />
 </RelativeLayout>

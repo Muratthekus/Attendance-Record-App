@@ -14,7 +14,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="37dp"
         android:gravity="center_horizontal|center"
-        android:text="KİŞİLER"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -26,7 +25,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="81dp"
         android:layout_marginStart="47dp"
-        android:text="Yeni Kişi"
+        android:text="add"
         android:textSize="14sp"
         android:textStyle="bold" />
 
@@ -37,7 +36,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/button"
         android:layout_marginEnd="31dp"
-        android:text="Ara"
+        android:text="search"
         android:textSize="14sp"
         android:textStyle="bold" />
 
@@ -49,7 +48,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="150dp"
         android:gravity="center_horizontal|center"
-        android:hint="Ad Soyad"
+        android:hint="Name"
         android:textSize="14sp" />
 
     <HorizontalScrollView
@@ -83,7 +82,7 @@
                         android:layout_width="84dp"
                         android:layout_height="45dp"
                         android:gravity="center_vertical|center_horizontal|center"
-                        android:text="İsim/Gün"
+                        android:text="Name/Date"
                         android:textStyle="bold" />
 
                 </TableRow>
@@ -99,7 +98,7 @@
                         android:layout_height="50dp"
                         android:gravity="center_vertical|center_horizontal|center"
                         android:hint="isim"
-                        android:text=""
+                        android:text="Name"
                         android:textStyle="bold" />
 
                 </TableRow>
@@ -143,7 +142,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="98dp"
-        android:text="GEÇERLİ DÖNEMİ SEÇİN"
+        android:text="CHOOSE A VALİD RECORD DATA"
         android:textSize="18sp"
         android:textStyle="bold|italic" />
 
@@ -153,7 +152,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/button"
         android:layout_centerHorizontal="true"
-        android:text="güncelle"
+        android:text="update"
         android:textStyle="bold" />
 
 </RelativeLayout>

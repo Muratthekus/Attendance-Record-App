@@ -26,7 +26,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".NewPerson" />
-        <activity android:name=".ilkekran" />
+        <activity android:name=".Check" />
         <activity android:name=".Years"/>
     </application>
 

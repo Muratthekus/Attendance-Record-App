@@ -27,18 +27,21 @@ import java.util.Calendar;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class ilkekran extends AppCompatActivity  {
+public class Check extends AppCompatActivity  {
     SurfaceView cameraPreview;
     static TextView txtResult;
-    static String QrInput;
     ImageButton back;
     BarcodeDetector barcodeDetector;
     CameraSource cameraSource;
-    static String DATE= Calendar.getInstance().get(Calendar.DAY_OF_MONTH)+"/"+(Calendar.getInstance().get(Calendar.MONTH)+1)+"/"+Calendar.getInstance().get(Calendar.YEAR);
+    static String DATE= Calendar.getInstance().get(Calendar.DAY_OF_MONTH)+
+            "/"+(Calendar.getInstance().get(Calendar.MONTH)+1)+"/"+Calendar.getInstance().get(Calendar.YEAR);
+
+    //People who come to job
     Set<String> TodayPerson=new TreeSet<>();
-    String tarih="";
+    String checkday="";
     final int RequestCameraPermissionID = 1001;
-    //Veri Saklama
+
+    //For keep small data
     static SharedPreferences data;
     static SharedPreferences.Editor editor;
 
@@ -71,17 +74,18 @@ public class ilkekran extends AppCompatActivity  {
         super.onPause();
         editor.commit();
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ilkekran);
+        setContentView(R.layout.activity_check);
         data= PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         editor = data.edit();
 
         TodayPerson=data.getStringSet("TodayPerson",TodayPerson);
-        tarih=data.getString("date",tarih);
-        cameraPreview = (SurfaceView) findViewById(R.id.cameraPreview);
-        txtResult = (TextView) findViewById(R.id.txtResult);
+        checkday=data.getString("date",checkday);
+        cameraPreview = findViewById(R.id.cameraPreview);
+        txtResult = findViewById(R.id.txtResult);
         back=findViewById(R.id.backButton);
         fullScreen();
         back.setOnClickListener(new View.OnClickListener() {
@@ -106,7 +110,7 @@ public class ilkekran extends AppCompatActivity  {
             public void surfaceCreated(SurfaceHolder surfaceHolder) {
                 if (ActivityCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                     //Request permission
-                    ActivityCompat.requestPermissions(ilkekran.this,
+                    ActivityCompat.requestPermissions(Check.this,
                             new String[]{android.Manifest.permission.CAMERA},RequestCameraPermissionID);
                     return;
                 }
@@ -146,8 +150,8 @@ public class ilkekran extends AppCompatActivity  {
                             Vibrator vibrator = (Vibrator)getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
                             vibrator.vibrate(50);
                             TodayPerson.add(qrcodes.valueAt(0).displayValue);
-                            tarih=DATE;
-                            editor.putString("tarih",tarih);
+                            checkday=DATE;
+                            editor.putString("tarih",checkday);
                             editor.putStringSet("TodayPerson",TodayPerson);
                             txtResult.setText(qrcodes.valueAt(0).displayValue);
                         }

@@ -167,7 +167,7 @@ public class Years extends AppCompatActivity {
         Row row = sheet1.createRow(0);
 
         c = row.createCell(0);
-        c.setCellValue("İsim/Gün");
+        c.setCellValue("Name/Date");
         c.setCellStyle(cs);
 
         sheet1.setColumnWidth(0, (15 * 500));
@@ -222,7 +222,7 @@ public class Years extends AppCompatActivity {
         HSSFSheet mySheet =myWorkBook.createSheet(sheetName);
         Row row = mySheet.createRow(0);
         c=row.createCell(0);
-        c.setCellValue("İsim/Gün");
+        c.setCellValue("Name/Date");
         c.setCellStyle(cs);
         mySheet.setColumnWidth(0, (15 * 500));
 
@@ -251,10 +251,10 @@ public class Years extends AppCompatActivity {
         final EditText sheetnameInput=new EditText(this);
         sheetnameInput.setInputType(InputType.TYPE_CLASS_TEXT);//Getting the sheet name
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("DEMO");
-        builder.setMessage("Dosya Var, Eklenecek Sheet Ismini Giriniz");
+        builder.setTitle("WARNING");
+        builder.setMessage("File is exist, Do you want to add new sheet");
         builder.setView(sheetnameInput);
-        builder.setPositiveButton("TAMAM", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("OKEY", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 try {
                     addSheetExcel(filename,sheetnameInput.getText().toString());
@@ -264,7 +264,7 @@ public class Years extends AppCompatActivity {
             }
         });
         //If User Choose Negative Button Then Nothing Will Happen
-        builder.setNegativeButton("İPTAL", new DialogInterface.OnClickListener(){
+        builder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener(){
             public void onClick(DialogInterface dialog, int id) {
                 dialog.cancel();
             }
@@ -277,17 +277,17 @@ public class Years extends AppCompatActivity {
         final EditText sheetnameInput=new EditText(this);
         sheetnameInput.setInputType(InputType.TYPE_CLASS_TEXT);//Getting the sheet name
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("DEMO");
-        builder.setMessage("Sheet Ismı Giriniz");
+        builder.setTitle("WARNING");
+        builder.setMessage("SHEET NAME");
         builder.setView(sheetnameInput);
 
-        builder.setPositiveButton("TAMAM", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("OKEY", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 createExcelFile(filename,sheetnameInput.getText().toString());
             }
         });
         //If User Choose Negative Button Then Nothing Will Happen
-        builder.setNegativeButton("İPTAL", new DialogInterface.OnClickListener(){
+        builder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener(){
             public void onClick(DialogInterface dialog, int id) {
                 dialog.cancel();
             }
@@ -302,8 +302,8 @@ public class Years extends AppCompatActivity {
         // else user want to delete an Excel File
         final File Resourcefile=new File(PATH);
         String message;
-        if(bool) message="Yeni Dönem Yaratılacak";
-        else message="Seçilen Dönem Silinecek";
+        if(bool) message="Create New Record File";
+        else message="Delete The Record File";
 
         boolean check=false;
         //Check file is exit
@@ -313,10 +313,10 @@ public class Years extends AppCompatActivity {
         final boolean isExist=check;
         //Alert Dialog Part
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("DEMO");
+        builder.setTitle("WARNING");
         builder.setMessage(message);
 
-        builder.setPositiveButton("TAMAM", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("OKEY", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 //File Create
                 if(bool){
@@ -334,13 +334,13 @@ public class Years extends AppCompatActivity {
                             if(f.getName().equals(fileName+".xlsx")) f.delete();
                         }
                     }
-                    else Toast.makeText(getApplicationContext(),"Silmek İstediginiz Dosya Yok",Toast.LENGTH_LONG).show();
+                    else Toast.makeText(getApplicationContext(),"File is not exist",Toast.LENGTH_LONG).show();
 
                 }
             }
         });
         //If User Choose Negative Button Then Nothing Will Happen
-        builder.setNegativeButton("İPTAL", new DialogInterface.OnClickListener(){
+        builder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener(){
             public void onClick(DialogInterface dialog, int id) {
                 dialog.cancel();
             }
