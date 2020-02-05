@@ -5,7 +5,7 @@
 - Users can select which excel file he/she want to save so application also can be used for organization which has part from different discipline
 
 >In this project for scanning qrcode and decode it I used
-> @eddydn QrCodeCamera(https://github.com/eddydn/QrCodeCamera) project
+> @eddydn [QrCodeCamera](https://github.com/eddydn/QrCodeCamera) project
 
 ###### Licence
 [MIT](https://choosealicense.com/licenses/mit/)
